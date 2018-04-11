@@ -8,4 +8,3 @@ RUN apk update && \
 RUN echo -e "//registry.npmjs.org/:_authToken=\${NPM_TOKEN}\nscope=habx\nloglevel=info" > ~/.npmrc
 
 CMD npm start
-
