@@ -1,11 +1,11 @@
-FROM node:10-alpine
+FROM node:12.0-alpine
 
 WORKDIR /app/
 
 RUN apk update && \
-    apk add git python make g++ && \
+    apk add ca-certificates && \
     rm -rf /var/cache/apk/*
-RUN npm i -g npm@6.0.0
+RUN npm i -g npm@latest
 RUN echo -e "//registry.npmjs.org/:_authToken=\${NPM_TOKEN}\nscope=habx\nloglevel=info" > ~/.npmrc
 
 CMD npm start
