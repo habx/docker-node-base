@@ -1,6 +1,7 @@
 FROM node:12.0-alpine
 
 WORKDIR /app/
+COPY run_start.sh .
 
 RUN apk update && \
     apk add ca-certificates && \
@@ -8,4 +9,4 @@ RUN apk update && \
 RUN npm i -g npm@latest
 RUN echo -e "//registry.npmjs.org/:_authToken=\${NPM_TOKEN}\nscope=habx\nloglevel=info" > ~/.npmrc
 
-CMD npm start
+CMD sh run_start.sh
